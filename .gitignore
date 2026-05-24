@@ -6,3 +6,5 @@ server/.env
 .DS_Store
 *.log
 .vscode/
+
+server/springboot-citas/
