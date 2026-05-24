@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión | Citas de Servicio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="icon/favicon.png" />
+  </head>
+  <body class="auth-page-body">
+
+    <!-- Animated background ambient nodes -->
+    <div class="bg-ambient-layer">
+      <div class="bg-glow-node-1"></div>
+      <div class="bg-glow-node-2"></div>
+      <div class="bg-grid-overlay"></div>
+    </div>
+
+    <!-- Split layout: left hero + right form -->
+    <div class="auth-split-layout">
+
+      <!-- ===== LEFT: Hero Pane ===== -->
+      <aside class="auth-hero-pane">
+        <div class="brand-group">
+          <div class="brand-icon">
+            <svg class="brand-logo-svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span class="brand-name" style="font-size:1.3rem">Citas de Servicio</span>
+        </div>
+
+        <div class="auth-hero-content">
+          <h2 class="auth-hero-title">Reserva Inteligente.<br/>Plataforma Inmediata.</h2>
+          <p class="auth-hero-description">
+            Coordinación óptima en tiempo real para tu atención técnica o vehicular. Agenda, reprograma y controla tus turnos con total transparencia.
+          </p>
+
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div>
+                <h4 class="benefit-title">Vista de Calendario Avanzada</h4>
+                <p class="benefit-desc">Monitorea tus reservas con nuestro interactivo y moderno calendario mensual.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="benefit-title">Notificación y Estados en Vivo</h4>
+                <p class="benefit-desc">Controla los estados "Pendiente", "Confirmado" o "Cancelado" de inmediato.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <polyline points="17 11 19 13 23 9"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="benefit-title">Gestión de Perfil Descentralizada</h4>
+                <p class="benefit-desc">Personaliza tus datos de contacto y sube imágenes de perfil de alta definición.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.25);font-weight:500">
+          &copy; 2026 Citas de Servicio Inc. Todos los derechos reservados.
+        </span>
+      </aside>
+
+      <!-- ===== RIGHT: Form Pane ===== -->
+      <main class="auth-form-pane">
+
+        <!-- Mobile brand header (hidden on desktop) -->
+        <div class="auth-form-container lg-hidden" style="margin-bottom:30px;display:flex;justify-content:space-between;align-items:center;width:100%">
+          <div class="brand-group">
+            <div class="brand-icon" style="width:32px;height:32px;border-radius:8px">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <span class="brand-name" style="font-size:1rem">Citas de Servicio</span>
+          </div>
+         
+        </div>
+
+        <div class="auth-form-container">
+          <div class="card-glass animate-fade-in-up">
+
+            <div class="auth-header">
+              <h1 class="heading-gradient" style="font-size:1.8rem;letter-spacing:-0.02em">Iniciar Sesión</h1>
+              <p class="subtitle">Ingresa tus credenciales para administrar tus citas.</p>
+            </div>
+
+            <div class="auth-tabs-toggle">
+              <button class="auth-tab-btn active" id="loginTab">Ingresar</button>
+              <button class="auth-tab-btn" onclick="window.location.href='register.html'">Nuevo Registro</button>
+            </div>
+
+            <form id="loginForm">
+              <div class="floating-group">
+                <input id="email" type="email" required placeholder=" " autocomplete="email" />
+                <label for="email">Correo Electrónico</label>
+              </div>
+              <div class="floating-group">
+                <input id="password" type="password" required placeholder=" " autocomplete="current-password" />
+                <label for="password">Contraseña</label>
+              </div>
+              <button class="btn" type="submit" id="submitBtn" style="width:100%;margin-top:6px">
+                Entrar al Dashboard
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="margin-left:6px"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </form>
+
+            <div id="alert" class="alert" style="display:none;margin-top:16px"></div>
+ 
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+          </div>
+        </footer>
+
+      </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      document.querySelector("#loginForm").addEventListener("submit", handleLogin);
+
+      function loadCredentials(email, password) {
+        document.getElementById("email").value = email;
+        document.getElementById("password").value = password;
+        document.getElementById("email").closest(".floating-group").classList.add("focused");
+        document.getElementById("password").closest(".floating-group").classList.add("focused");
+        showAlert("Credenciales cargadas. Haz clic en 'Entrar al Dashboard'.", "ok");
+      }
+
+      document.querySelectorAll(".floating-group input").forEach(input => {
+        if (input.value) input.closest(".floating-group").classList.add("focused");
+        input.addEventListener("focus", () => input.closest(".floating-group").classList.add("focused"));
+        input.addEventListener("blur", () => {
+          if (!input.value) input.closest(".floating-group").classList.remove("focused");
+        });
+      });
+    </script>
+  </body>
+</html>

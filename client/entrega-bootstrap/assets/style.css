@@ -1,0 +1,22 @@
+/* entrega-bootstrap: mínimo, solo ajustes chicos */
+:root {
+  --app-bg: #f6f7fb;
+}
+
+body {
+  background: var(--app-bg);
+}
+.brand-chip {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.sidebar-link {
+  text-decoration: none;
+}
+.sidebar-link.active {
+  font-weight: 600;
+}
+.table td,
+.table th {
+  vertical-align: middle;
+}

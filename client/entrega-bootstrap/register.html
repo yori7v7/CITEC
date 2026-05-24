@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Cuenta | Citas de Servicio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Background Moving ambient waves -->
+    <div class="bg-ambient-layer">
+      <div class="bg-glow-node-1"></div>
+      <div class="bg-glow-node-2"></div>
+      <div class="bg-grid-overlay"></div>
+    </div>
+
+    <!-- Top Navigation Header -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="brand-group">
+          <div class="brand-icon">
+            <svg class="brand-logo-svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span class="brand-name">Citas de Servicio</span>
+        </div>
+        <div class="nav-actions">
+          <a href="index.html" class="register-header-link">
+            Iniciar sesión
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 14px; height: 14px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main View Panel content -->
+    <main class="auth-viewport animate-fade-in-up">
+      <div class="card-glass">
+        <div class="auth-header">
+          <h1 class="heading-gradient">Crear cuenta</h1>
+          <p class="subtitle">Regístrate para comenzar a agendar tus turnos de servicio.</p>
+        </div>
+
+        <!-- Mode Toggle Indicator tab -->
+        <div class="auth-tabs-toggle">
+          <button class="auth-tab-btn" onclick="window.location.href='index.html'">Ingresar</button>
+          <button class="auth-tab-btn active" id="registerTab">Nuevo Registro</button>
+        </div>
+
+        <!-- Form fields layout block -->
+        <form id="registerForm">
+          <!-- Nombre Name Input group -->
+          <div class="floating-group">
+            <input id="name" type="text" required placeholder=" " />
+            <label for="name">Nombre Completo</label>
+          </div>
+
+          <!-- Correo email Input group -->
+          <div class="floating-group">
+            <input id="email" type="email" required placeholder=" " />
+            <label for="email">Correo Electrónico</label>
+          </div>
+
+          <!-- Contraseña password Input group -->
+          <div class="floating-group">
+            <input id="password" type="password" required placeholder=" " />
+            <label for="password">Contraseña</label>
+          </div>
+
+          <button class="btn" type="submit" id="submitBtn">
+            Registrar Cuenta Nueva
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </form>
+
+        <!-- Message/Alert banner display element -->
+        <div id="alert" class="alert" style="display: none"></div>
+      </div>
+    </main>
+
+    <!-- Bottom Footer Layout details -->
+    <footer class="footer">
+      <div>&copy; 2026 Citas de Servicio Inc. Todos los derechos reservados.</div>
+      <div style="display: flex; gap: 12px;">
+        <a href="#">Soporte</a>
+        <span style="color: var(--text-secondary)">&middot;</span>
+        <a href="#">Privacidad</a>
+      </div>
+    </footer>
+
+    <!-- App Scripts imports -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Submitting register trigger
+      document
+        .querySelector("#registerForm")
+        .addEventListener("submit", handleRegister);
+
+      // Track live keyboard focus events for floating inputs style layout
+      document.querySelectorAll(".floating-group input").forEach(input => {
+        input.addEventListener("focus", () => {
+          input.closest(".floating-group").classList.add("focused");
+        });
+        input.addEventListener("blur", () => {
+          if (!input.value) {
+            input.closest(".floating-group").classList.remove("focused");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

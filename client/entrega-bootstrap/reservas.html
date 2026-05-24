@@ -1,0 +1,219 @@
+<!-- Pantalla 4: Tabla + Modal | Bootstrap -->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reservas de Servicio | Mis reservas</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand brand-chip" href="dashboard.html"
+          >Citas de Servicio</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="reservas.html">Reservas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="reserva-form.html">Nueva reserva</a>
+            </li>
+          </ul>
+          <a class="btn btn-outline-secondary btn-sm" href="login.html"
+            >Salir</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3"
+      >
+        <div>
+          <h1 class="h4 mb-1">Mis reservas</h1>
+          <div class="text-secondary">Tabla (dummy) + modal de detalle.</div>
+        </div>
+        <a class="btn btn-primary" href="reserva-form.html">+ Crear</a>
+      </div>
+
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Servicio</th>
+                  <th>Fecha</th>
+                  <th>Estatus</th>
+                  <th>Cliente</th>
+                  <th class="text-end">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Verificación vehicular</td>
+                  <td>2026-02-16 10:30</td>
+                  <td><span class="badge text-bg-warning">Pendiente</span></td>
+                  <td>Mel</td>
+                  <td class="text-end">
+                    <button
+                      class="btn btn-sm btn-outline-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalDetalle"
+                      data-servicio="Verificación vehicular"
+                      data-fecha="2026-02-16 10:30"
+                      data-estatus="Pendiente"
+                      data-cliente="Mel"
+                      data-notas="Traer tarjeta de circulación."
+                    >
+                      Ver
+                    </button>
+                    <a
+                      class="btn btn-sm btn-outline-secondary"
+                      href="reserva-form.html"
+                      >Editar</a
+                    >
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Mantenimiento PC</td>
+                  <td>2026-02-17 13:00</td>
+                  <td><span class="badge text-bg-success">Confirmada</span></td>
+                  <td>Jack</td>
+                  <td class="text-end">
+                    <button
+                      class="btn btn-sm btn-outline-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalDetalle"
+                      data-servicio="Mantenimiento PC"
+                      data-fecha="2026-02-17 13:00"
+                      data-estatus="Confirmada"
+                      data-cliente="Jack"
+                      data-notas="Limpieza + cambio pasta térmica."
+                    >
+                      Ver
+                    </button>
+                    <a
+                      class="btn btn-sm btn-outline-secondary"
+                      href="reserva-form.html"
+                      >Editar</a
+                    >
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Instalación software</td>
+                  <td>2026-02-18 09:00</td>
+                  <td><span class="badge text-bg-danger">Cancelada</span></td>
+                  <td>Yori</td>
+                  <td class="text-end">
+                    <button
+                      class="btn btn-sm btn-outline-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalDetalle"
+                      data-servicio="Instalación software"
+                      data-fecha="2026-02-18 09:00"
+                      data-estatus="Cancelada"
+                      data-cliente="Yori"
+                      data-notas="Reagendar la próxima semana."
+                    >
+                      Ver
+                    </button>
+                    <a
+                      class="btn btn-sm btn-outline-secondary"
+                      href="reserva-form.html"
+                      >Editar</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalDetalle" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detalle de reserva</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <dl class="row mb-0">
+              <dt class="col-4">Servicio</dt>
+              <dd class="col-8" id="mServicio">—</dd>
+              <dt class="col-4">Fecha</dt>
+              <dd class="col-8" id="mFecha">—</dd>
+              <dt class="col-4">Estatus</dt>
+              <dd class="col-8" id="mEstatus">—</dd>
+              <dt class="col-4">Cliente</dt>
+              <dd class="col-8" id="mCliente">—</dd>
+              <dt class="col-4">Notas</dt>
+              <dd class="col-8" id="mNotas">—</dd>
+            </dl>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <a class="btn btn-primary" href="reserva-form.html">Editar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const modal = document.getElementById("modalDetalle");
+      modal.addEventListener("show.bs.modal", (event) => {
+        const btn = event.relatedTarget;
+        document.getElementById("mServicio").textContent =
+          btn.getAttribute("data-servicio");
+        document.getElementById("mFecha").textContent =
+          btn.getAttribute("data-fecha");
+        document.getElementById("mEstatus").textContent =
+          btn.getAttribute("data-estatus");
+        document.getElementById("mCliente").textContent =
+          btn.getAttribute("data-cliente");
+        document.getElementById("mNotas").textContent =
+          btn.getAttribute("data-notas");
+      });
+    </script>
+  </body>
+</html>

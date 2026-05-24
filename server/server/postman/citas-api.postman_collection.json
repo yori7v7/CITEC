@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "3b13a649-6fe4-4c4b-88c4-699b8c24bf70",
+    "name": "CITEC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31880520"
+  },
+  "item": [
+    {
+      "name": "REGISTER",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"yori\",\r\n  \"email\": \"yori@test.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/register",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "LOGIN",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"yori@test.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ME",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMzk1OWE4YmQyNTQ0YTI3ZDcwMDIiLCJlbWFpbCI6InlvcmlAdGVzdC5jb20iLCJpYXQiOjE3NzczNTEwMDEsImV4cCI6MTc3NzM1ODIwMX0.WAXMBZIMPPEQD8IPtij9mCofO8IV6U60uc9vOIcNed0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/auth/me",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CREAR CITA",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMzk1OWE4YmQyNTQ0YTI3ZDcwMDIiLCJlbWFpbCI6InlvcmlAdGVzdC5jb20iLCJpYXQiOjE3NzczNTEwMDEsImV4cCI6MTc3NzM1ODIwMX0.WAXMBZIMPPEQD8IPtij9mCofO8IV6U60uc9vOIcNed0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMjFlMWE4YmQyNTQ0YTI3ZDZmZjQiLCJlbWFpbCI6Imp1YW5AdGVzdC5jb20iLCJpYXQiOjE3NzczNDQ5OTgsImV4cCI6MTc3NzM1MjE5OH0.oUw76htCXvmZU-wvAUjLcrvK8t5Ca3i_fNNZYsTRZZg",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"service\": \"Servicio administrativo\",\r\n  \"date\": \"2026-05-01\",\r\n  \"time\": \"10:00\",\r\n  \"description\": \"Cita de prueba desde Postman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/appointments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "LISTAR CITAS",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMzk1OWE4YmQyNTQ0YTI3ZDcwMDIiLCJlbWFpbCI6InlvcmlAdGVzdC5jb20iLCJpYXQiOjE3NzczNTEwMDEsImV4cCI6MTc3NzM1ODIwMX0.WAXMBZIMPPEQD8IPtij9mCofO8IV6U60uc9vOIcNed0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/appointments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "OBTENER POR ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMzk1OWE4YmQyNTQ0YTI3ZDcwMDIiLCJlbWFpbCI6InlvcmlAdGVzdC5jb20iLCJpYXQiOjE3NzczNTEwMDEsImV4cCI6MTc3NzM1ODIwMX0.WAXMBZIMPPEQD8IPtij9mCofO8IV6U60uc9vOIcNed0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/appointments/{{appointment_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "appointments",
+            "{{appointment_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ACTUALIZAR",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMzk1OWE4YmQyNTQ0YTI3ZDcwMDIiLCJlbWFpbCI6InlvcmlAdGVzdC5jb20iLCJpYXQiOjE3NzczNTEwMDEsImV4cCI6MTc3NzM1ODIwMX0.WAXMBZIMPPEQD8IPtij9mCofO8IV6U60uc9vOIcNed0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"service\": \"Servicio administrativo actualizado\",\r\n  \"date\": \"2026-05-02\",\r\n  \"time\": \"12:30\",\r\n  \"description\": \"Cita actualizada desde Postman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/appointments/{{appointment_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "appointments",
+            "{{appointment_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ELIMINAR",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYwMzk1OWE4YmQyNTQ0YTI3ZDcwMDIiLCJlbWFpbCI6InlvcmlAdGVzdC5jb20iLCJpYXQiOjE3NzczNTEwMDEsImV4cCI6MTc3NzM1ODIwMX0.WAXMBZIMPPEQD8IPtij9mCofO8IV6U60uc9vOIcNed0",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/appointments/{{appointment_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "appointments",
+            "{{appointment_id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "appointment_id",
+      "value": ""
+    }
+  ]
+}

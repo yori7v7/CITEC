@@ -1,0 +1,29 @@
+@"
+# Dependencias
+node_modules/
+server/node_modules/
+
+# Variables de entorno
+.env
+server/.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java / Spring Boot
+target/
+server/springboot-citas/target/
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Respaldos
+server/springboot-citas-respaldo/
+"@ | Set-Content ".\.gitignore"

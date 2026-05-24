@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Control | Citas de Servicio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Background Ambient Moving Glow circles -->
+    <div class="bg-ambient-layer">
+      <div class="bg-glow-node-1"></div>
+      <div class="bg-glow-node-2"></div>
+      <div class="bg-grid-overlay"></div>
+    </div>
+
+    <!-- Top Navigation Header -->
+    <header class="navbar scrolled">
+      <div class="nav-container">
+        <div class="brand-group">
+          <div class="brand-icon">
+            <svg class="brand-logo-svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span class="brand-name">Citas de Servicio</span>
+        </div>
+        <div class="nav-actions">
+          <!-- Personalized welcome context badge -->
+          <div class="user-chip sm-hidden">
+            <div class="user-avatar" id="avatarIcon">U</div>
+            <div style="font-size: 0.78rem; font-weight: 700; color: white;">Mi Cuenta</div>
+          </div>
+          
+          <button class="btn secondary" id="logoutBtn" style="padding: 8px 16px; width: auto; font-size: 0.8rem; border-radius: 10px;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+            Salir
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main View Panel content -->
+    <main class="main-viewport animate-fade-in-up">
+      
+      <!-- Welcome active dashboard profile banner card -->
+      <div class="banner-glass">
+        <div>
+          <h1 class="heading-gradient" style="font-size: 1.7rem; font-weight: 800;">Panel de Citas</h1>
+          <p class="subtitle" id="welcome">Sesión de usuario activa...</p>
+        </div>
+        
+        <div style="font-size: 0.75rem; color: var(--text-secondary); background: rgba(255, 255, 255, 0.04); padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: right;">
+          <div style="font-weight: 700; color: #a5b4fc; display: flex; align-items: center; gap: 4px; justify-content: flex-end;">
+            <span class="custom-pulse-dot" style="background-color: var(--brand-accent);"></span> Conexión Estable
+          </div>
+          <div style="margin-top: 3px;">Servidor: REST API</div>
+        </div>
+      </div>
+
+      <!-- Main Columns arrangement -->
+      <div class="dashboard-grid">
+        
+        <!-- Left: Form Card details -->
+        <section class="card-glass" style="height: fit-content;">
+          <h2 id="formTitle" style="margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            Nueva cita
+          </h2>
+          <p class="subtitle" style="margin-bottom: 24px;">Crea o actualiza reservas de atención técnica o vehicular de inmediato.</p>
+
+          <form id="apptForm">
+            <!-- Hidden appt id input -->
+            <input type="hidden" id="apptId" />
+
+            <!-- Servicio required fields with floating labels -->
+            <div class="floating-group">
+              <input id="service" type="text" required placeholder=" " />
+              <label for="service">Servicio Requerido</label>
+            </div>
+
+            <div class="form-row">
+              <!-- Fecha picker -->
+              <div class="form-group">
+                <label for="date" style="display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; letter-spacing: 0.02em;">Fecha y Hora</label>
+                <input id="date" type="datetime-local" required />
+              </div>
+
+              <!-- Estado dropdown -->
+              <div class="form-group">
+                <label for="status" style="display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; letter-spacing: 0.02em;">Estatus Planificado</label>
+                <select id="status">
+                  <option value="pendiente">pendiente</option>
+                  <option value="confirmada">confirmada</option>
+                  <option value="cancelada">cancelada</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Notas descriptions text inputs with floating label -->
+            <div class="floating-group" style="margin-top: 10px;">
+              <textarea id="notes" placeholder=" "></textarea>
+              <label for="notes">Notas y Características (Opcional)</label>
+            </div>
+
+            <!-- Forms buttons container -->
+            <div class="btn-group" style="margin-top: 24px;">
+              <button class="btn" type="submit" id="saveBtn">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8"/></svg>
+                Guardar Cita
+              </button>
+              
+              <button class="btn secondary" type="button" id="clearBtn" style="width: auto;">
+                Limpiar
+              </button>
+            </div>
+
+            <!-- Form alerts details notices -->
+            <div id="alert" class="alert" style="display: none"></div>
+          </form>
+        </section>
+
+        <!-- Right: Filter and Data table list cards -->
+        <section style="display: flex; flex-direction: column;">
+          
+          <!-- State Segment Tabs filter buttons -->
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">Ver todas</button>
+            <button class="filter-tab" data-filter="pendiente">⏳ Pendientes</button>
+            <button class="filter-tab" data-filter="confirmada">✅ Confirmadas</button>
+            <button class="filter-tab" data-filter="cancelada">❌ Canceladas</button>
+          </div>
+
+          <!-- Glass card wrapping table list queue -->
+          <div class="card-glass" style="flex: 1; padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <h2 style="font-size: 1.15rem;">Mis citas agendadas</h2>
+                <p class="subtitle">Lista unificada de tus reservas registradas en el sistema.</p>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Servicio</th>
+                    <th>Fecha y Hora</th>
+                    <th>Estatus</th>
+                    <th>Notas</th>
+                    <th class="text-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="apptTable">
+                  <!-- JS Injection target row lists -->
+                  <tr>
+                    <td colspan="5" class="py-12 text-center text-slate-400">
+                      <div class="spinner" style="margin-right: 8px;"></div> Cargando listado de citas...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Bottom Footer Layout details -->
+    <footer class="footer">
+      <div>&copy; 2026 Citas de Servicio Inc. Reservas rápidas e inteligentes en tiempo real.</div>
+      <div style="display: flex; gap: 12px;">
+        <a href="#">Soporte Técnico</a>
+        <span style="color: var(--text-secondary)">&middot;</span>
+        <a href="#">Privacidad</a>
+      </div>
+    </footer>
+
+    <!-- App Scripts imports in correct sequence -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+      // Setup dynamic avatar initials based on active profile values inside session memory
+      document.addEventListener("DOMContentLoaded", () => {
+        const user = getUser();
+        const avatarEl = document.getElementById("avatarIcon");
+        if (user && avatarEl) {
+          avatarEl.textContent = user.name.charAt(0).toUpperCase();
+        }
+      });
+
+      // Track active focus visual wrappers on floating labels items
+      document.querySelectorAll(".floating-group input, .floating-group textarea").forEach(el => {
+        // on load check
+        if (el.value) {
+          el.closest(".floating-group").classList.add("focused");
+        }
+        
+        el.addEventListener("focus", () => {
+          el.closest(".floating-group").classList.add("focused");
+        });
+        
+        el.addEventListener("blur", () => {
+          if (!el.value) {
+            el.closest(".floating-group").classList.remove("focused");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
